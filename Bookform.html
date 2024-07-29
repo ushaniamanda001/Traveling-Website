@@ -1,0 +1,29 @@
+<?php
+
+$connection = mysqli_connect('localhost','root','Book_DB');
+
+if (isset($_POST['send']))
+{
+    $name = $POST ['name'];
+    $email = $POST ['email'];
+    $telephone = $POST ['telephone'];
+    $address = $POST ['address'];
+    $location = $POST ['location'];
+    $guests = $POST ['guests'];
+    $arraivals = $POST ['arraivals'];
+    $leavings = $POST ['leavings'];
+
+    $request = "insert into book_form(Name, Email, Phone, Address, Location, Guests, Arraival, Leaving) values('$name','$email','$telephone','$address','$location','$guests','$arraivals','$leavings')";
+    
+mysqli_query($connection, $request);
+
+header('location:Book.html');
+
+}
+else
+{
+    echo 'Something went wrong try again!';
+}
+
+
+?>
